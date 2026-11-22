@@ -1343,3 +1343,14 @@ h1, h2, h3, h4 {
         color: var(--color-dark);
     }
 }
+/* Link to the full-screen prayer board (board/) */
+.prayer-screen-link {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+.prayer-screen-link p {
+    max-width: 520px;
+    margin: 0.75rem auto 0;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
