@@ -1,0 +1,83 @@
+/* Layout only. Colours live in themes/*.css so a new theme never touches this file. */
+* { box-sizing: border-box; margin: 0; }
+
+html, body { height: 100%; }
+body {
+  background: radial-gradient(120% 90% at 15% 0%, var(--bg-from), var(--bg-via) 55%, var(--bg-to));
+  color: var(--ink);
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  overflow: hidden;
+  cursor: none;
+}
+[dir="rtl"] body, [dir="rtl"] .board { font-family: "Noto Naskh Arabic", "Source Sans 3", serif; }
+
+.board {
+  height: 100vh;
+  display: grid;
+  grid-template: "top top" auto "now times" 1fr "news news" auto / 1fr 1.25fr;
+  gap: 3vh 5vw;
+  padding: 5vh 5vw 4vh;
+}
+
+.top {
+  grid-area: top;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 4vw;
+  padding-bottom: 2vh;
+  border-bottom: 0.25vmin solid var(--gold);
+}
+h1 { font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 5.2vmin; line-height: 1.1; }
+.dates { text-align: end; font-size: 3vmin; color: var(--ink-muted); }
+#hijri { color: var(--gold); }
+
+.now { grid-area: now; display: flex; flex-direction: column; justify-content: center; gap: 5vh; }
+.clock {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 500;
+  font-size: 19vmin;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.secs { font-size: 0.28em; color: var(--ink-muted); margin-inline-start: 0.3em; }
+.next { border-inline-start: 0.6vmin solid var(--gold); padding-inline-start: 2.5vmin; }
+.next-label { font-size: 3.4vmin; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+[dir="rtl"] .next-label { text-transform: none; letter-spacing: 0; }
+.next-count { font-size: 8vmin; font-weight: 600; color: var(--gold-strong); font-variant-numeric: tabular-nums; }
+
+.times { grid-area: times; display: flex; align-items: center; }
+table { width: 100%; border-collapse: separate; border-spacing: 0 1.1vh; font-size: 4.4vmin; line-height: 1.2; }
+th { font-size: 2.6vmin; font-weight: 600; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; text-align: end; padding: 0 2.5vmin; }
+[dir="rtl"] th { text-transform: none; letter-spacing: 0; }
+td { padding: 1.6vh 2.5vmin; text-align: end; font-variant-numeric: tabular-nums; border-block: 0.15vmin solid var(--line); }
+td:first-child { text-align: start; font-weight: 600; border-inline-start: 0.15vmin solid var(--line); border-start-start-radius: 1vmin; border-end-start-radius: 1vmin; }
+td:last-child { border-inline-end: 0.15vmin solid var(--line); border-start-end-radius: 1vmin; border-end-end-radius: 1vmin; color: var(--gold); font-weight: 600; }
+tr.muted td { color: var(--ink-muted); font-weight: 400; font-size: 0.85em; }
+tr.is-next td { background: var(--hl); border-color: var(--gold); color: var(--ink); }
+tr.is-next td:last-child { color: var(--gold-strong); }
+.many { display: block; font-size: 0.8em; }
+
+.news { grid-area: news; min-height: 5vmin; font-size: 3.2vmin; color: var(--ink-muted); text-align: center; }
+#news { transition: opacity 0.6s ease; unicode-bidi: plaintext; }
+#news.fade { opacity: 0; }
+
+.error { position: fixed; inset: auto 4vw 4vh; padding: 2vmin 3vmin; background: #7a1d1d; color: #fff; font: 600 2.6vmin/1.4 system-ui, sans-serif; border-radius: 1vmin; }
+
+@media (orientation: portrait) {
+  .board { grid-template: "top" auto "now" auto "times" 1fr "news" auto / 1fr; }
+  .top { flex-direction: column; align-items: flex-start; }
+  .dates { text-align: start; }
+  .now { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+  .clock { font-size: 15vmin; }
+  h1 { font-size: 7vmin; }
+  .dates, .news { font-size: 3.8vmin; }
+  table { font-size: 6vmin; }
+  th { font-size: 3.2vmin; }
+}
+
+@media (prefers-reduced-motion: reduce) { #news { transition: none; } }
+
+/* no iqamah times configured: hide the empty third column */
+.no-iqamah .times th:nth-child(3), .no-iqamah .times td:nth-child(3) { display: none; }

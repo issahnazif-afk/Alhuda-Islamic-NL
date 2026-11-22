@@ -1,0 +1,12 @@
+/* Teal: deep teal night with warm gold. Copy this file to make a new theme. */
+:root {
+  --bg-from: hsl(174 60% 15%);
+  --bg-via: hsl(178 46% 10%);
+  --bg-to: hsl(200 34% 7%);
+  --ink: hsl(40 32% 93%);
+  --ink-muted: hsl(40 16% 72%);
+  --gold: hsl(40 62% 60%);
+  --gold-strong: hsl(42 74% 67%);
+  --line: hsl(40 30% 92% / 0.12);
+  --hl: hsl(40 62% 60% / 0.14);
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Masjid Board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600&family=Noto+Naskh+Arabic:wght@500;700&display=swap">
+  <link rel="stylesheet" href="board.css">
+  <link rel="stylesheet" id="theme" href="themes/teal.css">
+</head>
+<body>
+  <main class="board" aria-live="off">
+    <header class="top">
+      <h1 id="name"></h1>
+      <div class="dates"><p id="greg"></p><p id="hijri"></p></div>
+    </header>
+
+    <section class="now">
+      <p class="clock"><span id="clock"></span><span id="secs" class="secs"></span></p>
+      <div class="next">
+        <p id="next-label" class="next-label"></p>
+        <p id="next-count" class="next-count"></p>
+      </div>
+    </section>
+
+    <section class="times">
+      <table>
+        <thead><tr><th></th><th id="h-adhan"></th><th id="h-iqamah"></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+
+    <footer class="news"><p id="news"></p></footer>
+  </main>
+
+  <p id="error" class="error" role="alert" hidden></p>
+  <script type="module" src="src/board.js"></script>
+</body>
+</html>

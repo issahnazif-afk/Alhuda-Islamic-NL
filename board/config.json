@@ -1,0 +1,22 @@
+{
+  "masjid": { "name": "Al-Huda Islamic Centre" },
+  "location": { "latitude": 47.5615, "longitude": -52.7126 },
+  "calculation": {
+    "method": "NorthAmerica",
+    "madhab": "Shafi",
+    "highLatitudeRule": "TwilightAngle",
+    "adjustments": { "fajr": 0, "sunrise": 0, "dhuhr": 0, "asr": 0, "maghrib": 0, "isha": 0 }
+  },
+  "iqamah": {},
+  "iqamahRoundMinutes": 5,
+  "jumuah": [],
+  "rolloverAfterIshaMinutes": 60,
+  "hijriOffsetDays": 0,
+  "language": "en",
+  "theme": "teal",
+  "clock": "12h",
+  "announcements": [
+    "Welcome to Al-Huda Islamic Centre. Please switch your phone to silent.",
+    "Prayer times are calculated for St. John's (ISNA method)."
+  ]
+}
